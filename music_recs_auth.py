@@ -13,7 +13,7 @@ scope = "user-modify-playback-state"
 sp_oauth = SpotifyOAuth(
     client_id,
     client_secret,
-    redirect_uri="http://localhost:8888/callback",
+    redirect_uri="http://localhost:8501",
     scope = "user-modify-playback-state"
     )
 #sp = spotipy.Spotify(oauth_manager=sp_oauth)
