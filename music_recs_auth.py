@@ -13,12 +13,12 @@ scope = "user-modify-playback-state"
 sp_oauth = SpotifyOAuth(
     client_id,
     client_secret,
-    redirect_uri="http://localhost:8501",
+    redirect_uri="https://spotifysongrecs.streamlit.app/",
     scope = "user-modify-playback-state"
     )
 #sp = spotipy.Spotify(oauth_manager=sp_oauth)
 
-token = util.prompt_for_user_token('USERNAME_TO_AUTHORIZE',scope,client_id=client_id,client_secret=client_secret,redirect_uri="http://localhost:8501")
+token = util.prompt_for_user_token('USERNAME_TO_AUTHORIZE',scope,client_id=client_id,client_secret=client_secret,redirect_uri="https://spotifysongrecs.streamlit.app/")
 sp = spotipy.Spotify(auth=token)
 
 
