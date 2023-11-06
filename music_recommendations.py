@@ -11,7 +11,7 @@ client_secret = ""
 sp_oauth = SpotifyOAuth(
     client_id,
     client_secret,
-    redirect_uri="spotifyrecommendationsapp.streamlit.app",
+    redirect_uri="http://spotifyrecommendationsapp.streamlit.app",
     scope = "user-modify-playback-state"
     )
 
