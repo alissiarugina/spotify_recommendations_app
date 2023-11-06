@@ -18,7 +18,7 @@ sp_oauth = SpotifyOAuth(
     )
 #sp = spotipy.Spotify(oauth_manager=sp_oauth)
 
-token = util.prompt_for_user_token('USERNAME_TO_AUTHORIZE',scope,client_id=client_id,client_secret=client_secret,redirect_uri="http://localhost:8888/callback")
+token = util.prompt_for_user_token('USERNAME_TO_AUTHORIZE',scope,client_id=client_id,client_secret=client_secret,redirect_uri="http://localhost:8501")
 sp = spotipy.Spotify(auth=token)
 
 
