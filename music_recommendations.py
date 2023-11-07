@@ -11,7 +11,7 @@ client_secret = ""
 sp_oauth = SpotifyOAuth(
     client_id,
     client_secret,
-    redirect_uri="http://localhost:8501",
+    redirect_uri="http://localhost:3000",
     scope = "user-modify-playback-state"
     )
 
