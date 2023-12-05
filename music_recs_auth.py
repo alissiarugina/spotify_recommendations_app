@@ -7,18 +7,18 @@ import streamlit as st
 
 # Set up Spotify credentials
 client_id = "" 
-client_secret = ""
+client_secret = "" 
 client_credentials_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
-scope = "user-modify-playback-state"
+#scope = "user-modify-playback-state"
 sp_oauth = SpotifyOAuth(
     client_id,
     client_secret,
-    redirect_uri="https://spotifysongrecs.streamlit.app/",
+    redirect_uri="http://localhost:8888/callback",
     scope = "user-modify-playback-state"
     )
 #sp = spotipy.Spotify(oauth_manager=sp_oauth)
 
-token = util.prompt_for_user_token('USERNAME_TO_AUTHORIZE',scope,client_id=client_id,client_secret=client_secret,redirect_uri="https://spotifysongrecs.streamlit.app/")
+token = util.prompt_for_user_token('USERNAME_TO_AUTHORIZE',client_id=client_id,client_secret=client_secret,redirect_uri="http://localhost:8888/callback")
 sp = spotipy.Spotify(auth=token)
 
 
@@ -56,8 +56,8 @@ if (track_name or track_artist) and st.session_state['show_results'] :
     st.header("Chosen song:") #chosen_track 
     st.write(chosen_track['name'])
     st.image(chosen_track['album']['images'][0]['url'])
-    if (st.button("Add to queue",key='chosen')):
-       sp.add_to_queue(chosen_track['uri'])
+    # if (st.button("Add to queue",key='chosen')):
+    #    sp.add_to_queue(chosen_track['uri'])
     st.link_button("Open in Spotify", chosen_track['external_urls']['spotify'])
     st.header("Recommended songs:")
     i = 0
@@ -69,7 +69,7 @@ if (track_name or track_artist) and st.session_state['show_results'] :
         st.write("Artists: ", artists[:len(artists)-2])
         st.image(track['album']['images'][0]['url'])
         
-        if st.button("Add to queue",key=i):
-            sp.add_to_queue(track['uri'])
+        # if st.button("Add to queue",key=i):
+        #     sp.add_to_queue(track['uri'])
         st.link_button("Open in Spotify", track['external_urls']['spotify'] )
         i += 1
